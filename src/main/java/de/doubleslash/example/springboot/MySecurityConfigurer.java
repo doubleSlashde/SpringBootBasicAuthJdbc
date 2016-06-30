@@ -39,10 +39,13 @@ public class MySecurityConfigurer extends WebSecurityConfigurerAdapter {
       protected void configure(final HttpSecurity http) throws Exception {
          http.antMatcher("/h2-console/**").authorizeRequests().anyRequest().permitAll();
 
-         http.csrf().disable();
-         http.headers().frameOptions().disable();
-         // There was an unexpected error (type=Forbidden, status=403).
+         // CSRF Prüfung für H2 Konsole deaktivieren, ok, da wir diese nur während der Entwicklung brauchen...
+         // Ansonsten: There was an unexpected error (type=Forbidden, status=403).
          // Expected CSRF token not found. Has your session expired?
+         http.csrf().disable();
+         // ebenso Frame Options...
+         http.headers().frameOptions().disable();
+
       }
 
    }

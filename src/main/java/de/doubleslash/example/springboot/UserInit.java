@@ -15,7 +15,8 @@ public class UserInit implements CommandLineRunner {
    public void run(final String... args) throws Exception {
       final User user1 = new User("user1",
             // Passwort hashen
-            new BCryptPasswordEncoder().encode("bootifulPassword"), true, new Role("USER"));
+            new BCryptPasswordEncoder().encode("bootifulPassword"), //
+            true, new Role("USER"));
       userRepo.save(user1);
    }
 
