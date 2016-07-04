@@ -21,6 +21,9 @@ public class User {
    @NotNull
    private boolean enabled = true;
 
+   // Role could be an enum instead of entity. 
+   // We just use an entity here in order to show ManyToOne in a simple example.
+   // There is an example using Role enum in the Spring documentation.
    @ManyToOne(cascade = CascadeType.ALL)
    private Role role;
 
